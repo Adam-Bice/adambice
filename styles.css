@@ -1,0 +1,748 @@
+/* ==========================================================================
+   Adam Bice — shared styles
+   Plain CSS, no build step. Loaded by every page.
+   ========================================================================== */
+
+:root {
+  --cream: #faf7f2;
+  --card: #fffdfa;
+  --sage: #7d8f6e;
+  --sage-soft: #eef1e9;
+  --forest: #4a5a46;
+  --ink: #2e332c;
+  --muted: #6e7469;
+  --border: #e5dfd4;
+
+  --serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino,
+    Georgia, "Times New Roman", serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+
+  --wrap: 68rem;
+  --radius: 14px;
+  --section-y: clamp(4rem, 9vw, 7rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--forest);
+  text-decoration-color: var(--border);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+a:hover {
+  color: var(--sage);
+  text-decoration-color: currentColor;
+}
+
+:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.prose {
+  max-width: 34rem;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sage);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.lede {
+  font-size: clamp(1.0625rem, 2vw, 1.1875rem);
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------------- Buttons */
+
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.9rem;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--sage);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--forest);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  border-color: var(--border);
+  color: var(--forest);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--sage);
+  color: var(--forest);
+  background: var(--sage-soft);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------------- Header */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--cream);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 1.4rem;
+}
+
+.wordmark {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.wordmark:hover {
+  color: var(--sage);
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(1.1rem, 3vw, 2.1rem);
+}
+
+.site-nav a {
+  position: relative;
+  font-size: 0.9375rem;
+  color: var(--muted);
+  text-decoration: none;
+  padding-block: 0.35rem;
+  white-space: nowrap;
+}
+
+.site-nav a:hover {
+  color: var(--ink);
+}
+
+.site-nav a.active {
+  color: var(--ink);
+}
+
+.site-nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--sage);
+  border-radius: 2px;
+}
+
+/* ------------------------------------------------------------------ Hero */
+
+.hero {
+  padding-block: clamp(4.5rem, 12vw, 8.5rem);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  margin-bottom: 1.25rem;
+}
+
+.hero-tagline {
+  font-size: clamp(1.0625rem, 2.4vw, 1.3125rem);
+  color: var(--muted);
+  max-width: 34rem;
+  margin: 0 auto 2.5rem;
+}
+
+.hero .btn {
+  margin-bottom: 2.75rem;
+}
+
+/* --------------------------------------------------------- Social icons */
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+}
+
+.socials a {
+  color: var(--muted);
+  display: inline-flex;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.socials a:hover {
+  color: var(--sage);
+  transform: translateY(-2px);
+}
+
+.socials svg {
+  width: 21px;
+  height: 21px;
+}
+
+/* ------------------------------------------------------------ Page intro */
+
+.page-intro {
+  padding-block: clamp(3.5rem, 9vw, 6rem) clamp(2rem, 5vw, 3rem);
+  text-align: center;
+}
+
+.page-intro h1 {
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  margin-bottom: 1.25rem;
+}
+
+.page-intro .lede {
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+.pill {
+  display: inline-block;
+  background: var(--sage-soft);
+  color: var(--forest);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+/* ------------------------------------------------------------ Story grid */
+
+.story {
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  gap: clamp(2.5rem, 6vw, 4.5rem);
+  align-items: center;
+}
+
+/* Two text columns (no photo) — even widths, aligned to the top. */
+.story-split {
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.story-photo img {
+  width: 100%;
+  height: auto; /* beats the width/height attrs so aspect-ratio can apply */
+  border-radius: var(--radius);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.story h2 {
+  font-size: clamp(1.85rem, 4vw, 2.5rem);
+  margin-bottom: 1.5rem;
+}
+
+.story p + p {
+  margin-top: 1.1rem;
+}
+
+.story .btn {
+  margin-top: 2rem;
+}
+
+/* ----------------------------------------------------------------- Cards */
+
+.section-head {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.section-head h2 {
+  font-size: clamp(1.85rem, 4vw, 2.5rem);
+  margin-bottom: 0.85rem;
+}
+
+.section-head .lede {
+  max-width: 34rem;
+  margin-inline: auto;
+}
+
+.cards {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.cards-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.cards-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: clamp(1.85rem, 4vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--sage);
+  transform: translateY(-3px);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.card p {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.card .card-link,
+.card .btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.card-link {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--forest);
+}
+
+.card-link:hover {
+  color: var(--sage);
+}
+
+.card-link::after {
+  content: " \2192";
+}
+
+.card-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.card-meta {
+  border-top: 1px solid var(--border);
+  padding-top: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------ Tinted band */
+
+.band {
+  background: var(--sage-soft);
+  border-block: 1px solid var(--border);
+}
+
+.band-inner {
+  text-align: center;
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+.band h2 {
+  font-size: clamp(1.85rem, 4vw, 2.5rem);
+  margin-bottom: 1.1rem;
+}
+
+.band p {
+  color: var(--forest);
+  margin-bottom: 2rem;
+}
+
+.newsletter-copy {
+  margin-bottom: 2rem;
+}
+
+.checklist-note {
+  margin-top: 2rem;
+  max-width: 34rem;
+}
+
+.band-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------- Feature list */
+
+.checklist {
+  list-style: none;
+  display: grid;
+  gap: 0.9rem;
+  max-width: 34rem;
+}
+
+.checklist li {
+  position: relative;
+  padding-left: 1.75rem;
+  color: var(--muted);
+}
+
+.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sage);
+}
+
+/* --------------------------------------------------------------- Embeds */
+
+.embed {
+  max-width: 50rem;
+  margin-inline: auto;
+}
+
+.embed iframe {
+  display: block;
+  width: 100%;
+}
+
+.video-embed {
+  max-width: 50rem;
+  margin-inline: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.video-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.video-actions {
+  margin-top: 2.25rem;
+}
+
+.form-embed {
+  max-width: 34rem;
+  margin-inline: auto;
+}
+
+/* The Kit embed arrives with its own template styling (a decorative photo
+   column, pink button, white card). The snippet itself is untouched — these
+   rules just neutralise that styling so the form matches the site. !important
+   is needed because Kit sets several of these inline. */
+.form-embed .formkit-form {
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  font-family: var(--sans) !important;
+}
+
+.form-embed .formkit-background,
+.form-embed .formkit-header,
+.form-embed .formkit-subheader {
+  display: none !important;
+}
+
+.form-embed .formkit-column {
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.form-embed .formkit-input {
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  background-color: var(--card) !important;
+  color: var(--ink) !important;
+  font-family: var(--sans) !important;
+  font-size: 1rem !important;
+}
+
+.form-embed .formkit-input::placeholder {
+  color: var(--muted) !important;
+}
+
+.form-embed .formkit-submit {
+  background-color: var(--sage) !important;
+  border-radius: 999px !important;
+  font-family: var(--sans) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+}
+
+.form-embed .formkit-submit:hover {
+  background-color: var(--forest) !important;
+}
+
+.form-embed .formkit-disclaimer,
+.form-embed .formkit-powered-by-convertkit-container {
+  font-family: var(--sans) !important;
+  font-size: 0.8125rem !important;
+  color: var(--muted) !important;
+}
+
+/* ------------------------------------------------------------ Link cards */
+
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+
+.link-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.link-card:hover {
+  border-color: var(--sage);
+  transform: translateY(-3px);
+}
+
+.link-card strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.link-card span {
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+/* ---------------------------------------------------------------- Footer */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding-block: clamp(3rem, 6vw, 4.5rem);
+  margin-top: auto;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+}
+
+.footer-name {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+}
+
+.footer-copy {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.footer-heading {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 1rem;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.footer-col a {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  color: var(--ink);
+}
+
+/* ----------------------------------------------------------- Responsive */
+
+@media (max-width: 860px) {
+  .story {
+    grid-template-columns: 1fr;
+  }
+
+  .story-photo {
+    max-width: 24rem;
+  }
+
+  .story-photo img {
+    aspect-ratio: 4 / 5;
+  }
+
+  .cards-2,
+  .cards-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 0.9rem;
+    padding-block: 1.15rem;
+  }
+
+  .site-nav {
+    justify-content: center;
+    gap: 1.1rem 1.35rem;
+  }
+
+  .site-nav a {
+    font-size: 0.875rem;
+  }
+
+  .story-photo {
+    max-width: none;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
