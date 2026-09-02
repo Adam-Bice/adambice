@@ -758,8 +758,8 @@ h3 {
   font-size: clamp(1.0625rem, 1.15vw + 0.85rem, 1.1875rem);
   line-height: 1.68;
   --ty-section-y: clamp(4.5rem, 11vw, 8rem);
-  --ty-measure: 36rem;
-  --ty-measure-wide: 50rem;
+  --ty-measure: 42rem;
+  --ty-measure-wide: 58rem;
   --ty-gutter: clamp(1.25rem, 5vw, 2.5rem);
 }
 
